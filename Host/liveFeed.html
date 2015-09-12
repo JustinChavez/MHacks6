@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='/resources/tutorial/css/example.css'>
+  </head>
+  <body>
+
+      <input type='text' id='date' placeholder='Date'>
+      <input type='text' id='slide' placeholder='Slide'>
+      <input type='text' id='info' placeholder='Information'>
+      <script>
+      var pRef = new Firebase('https://torrid-heat-9093.firebaseio.com/');
+    
+      $('#info').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var name = $('#date').val();
+          var slide = $('#slide').val();
+          var text = $('#info').val();
+          var myDataRef = pRef.child(name);
+          myDataRef.push({name: name, slide: slide, text: text});
+          
+        }});
+    
+          
+          
+          
+       
+        </script>
+  </body>
+</html>
