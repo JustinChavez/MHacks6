@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>    
+      <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='/resources/tutorial/css/example.css'>
+  </head>
+  <body>
+    <div id='messagesDiv'></div>
+    <input type='text' id='nameInput' placeholder='Name'>
+    <input type='text' id='slideInput' placeholder='Slide'>
+    <input type='text' id='messageInput' placeholder='Message'>
+    <script>
+      var ref = new Firebase("https://torrid-heat-9093.firebaseio.com/");
+ref.createUser({
+  email    : "bobtony@firebase.com",
+  password : "correcthorsebatterystaple"
+}, function(error, userData) {
+  if (error) {
+    console.log("Error creating user:", error);
+  } else {
+    console.log("Successfully created user account with uid:", userData.uid);
+  }
+});
+    </script>
+  </body>
+</html>

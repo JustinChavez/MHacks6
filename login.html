@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='/resources/tutorial/css/example.css'>
+  </head>
+  <body>
+      
+      <input type='text' id='email' placeholder='Email'>
+      <input type='text' id='password' placeholder='Password'>
+      <script>
+      var pRef = new Firebase('https://torrid-heat-9093.firebaseio.com/user3');
+    
+      $('#password').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var email = $('#email').val();
+          var password = $('#password').val();
+        
+           pRef.createUser({
+            email    : email,
+            password : password
+            }, function(error, userData) {
+            if (error) {
+                console.log("Error creating user:", error);
+                } else {
+            console.log("Successfully created user account with uid:", userData.uid);
+  }
+}); 
+            
+            
+          
+        }});
+    
+          
+          
+          
+       
+        </script>
+  </body>
+</html>
