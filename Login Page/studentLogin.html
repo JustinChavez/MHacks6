@@ -16,7 +16,7 @@
       
       <script>
       var date =$('#date').val();
-          var pRef = new Firebase('https://torrid-heat-9093.firebaseio.com/');
+          var pRef = new Firebase('https://torrid-heat-9093.firebaseio.com/' + date);
       
       $('#password').keypress(function (e) {
         if (e.keyCode == 13) {
